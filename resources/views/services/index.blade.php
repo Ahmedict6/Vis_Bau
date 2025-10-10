@@ -4,7 +4,7 @@
 @section('meta_description', 'Discover our comprehensive construction services and solutions.')
 
 @section('content')
-<div class="page-title-area bg-img" data-bg="{{ asset('assets/img/backgrounds/about.webp') }}">
+<div class="page-title-area bg-img" data-bg="{{ asset('assets/img/backgrounds/funfact-bg.webp') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
