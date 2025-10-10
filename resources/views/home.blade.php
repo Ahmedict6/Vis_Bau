@@ -197,7 +197,7 @@
             <div class="col-lg-5 offset-lg-1 col-md-12">
                 <div class="cta-video-image">
                     <div class="video-container">
-                        <video width="470" height="523" controls class="img-fluid" poster="{{ asset('assets/img/backgrounds/video-cta.webp') }}">
+                        <video width="470" height="523" controls autoplay loop muted class="img-fluid" poster="{{ asset('assets/img/backgrounds/video-cta.webp') }}">
                             <source src="{{ asset('assets/vid/home_page.mp4') }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
