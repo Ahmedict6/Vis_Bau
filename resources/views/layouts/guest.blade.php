@@ -19,9 +19,6 @@
         <link rel="stylesheet" href="{{ asset('assets/css/plugins/plugins.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-        <!-- Laravel Breeze CSS -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
         <style>
             /* Constrk authentication styling */
             .auth-page-wrapper {
@@ -105,9 +102,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Laravel Breeze JS -->
-        @vite(['resources/js/app.js'])
 
         <!-- Language Switcher JavaScript -->
         <script>
