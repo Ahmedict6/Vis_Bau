@@ -30,7 +30,7 @@
                 <div class="service-details-content">
                     @if($service->image)
                     <div class="service-details-image">
-                        <img src="{{ asset('assets/img/service/' . $service->image) }}" alt="{{ $service->title }}" class="img-fluid">
+                        <img src="{{ asset('assets/img/services/' . $service->image) }}" alt="{{ $service->title }}" class="img-fluid">
                     </div>
                     @endif
 
@@ -91,7 +91,7 @@
                             <div class="related-service-item">
                                 <a href="{{ route('services.show', $relatedService) }}">
                                     @if($relatedService->image)
-                                    <img src="{{ asset('assets/img/service/' . $relatedService->image) }}" alt="{{ $relatedService->title }}" width="80" height="60">
+                                    <img src="{{ asset('assets/img/services/' . $relatedService->image) }}" alt="{{ $relatedService->title }}" width="80" height="60">
                                     @else
                                     <img src="{{ asset('assets/img/service/service1.webp') }}" alt="{{ $relatedService->title }}" width="80" height="60">
                                     @endif

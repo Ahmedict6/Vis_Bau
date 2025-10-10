@@ -80,7 +80,7 @@
                                         <div class="service-grid-item__image-wrapper">
                                             <a href="{{ route('services.show', $service) }}">
                                                 @if($service->image)
-                                                    <img width="370" height="237" src="{{ asset('assets/img/service/' . $service->image) }}" class="img-fluid" alt="{{ $service->title }}">
+                                                    <img width="370" height="237" src="{{ asset('assets/img/services/' . $service->image) }}" class="img-fluid" alt="{{ $service->title }}">
                                                 @else
                                                     <img width="370" height="237" src="{{ asset('assets/img/service/service1.webp') }}" class="img-fluid" alt="{{ $service->title }}">
                                                 @endif

@@ -86,6 +86,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     Route::post('cache/clear-view', [App\Http\Controllers\Admin\CacheController::class, 'clearViewCache'])->name('cache.clear-view');
     Route::post('cache/optimize', [App\Http\Controllers\Admin\CacheController::class, 'optimize'])->name('cache.optimize');
 
+    // About Page Management
+    Route::get('about-page', [App\Http\Controllers\Admin\AboutPageController::class, 'index'])->name('about-page.index');
+    Route::put('about-page', [App\Http\Controllers\Admin\AboutPageController::class, 'update'])->name('about-page.update');
+    Route::patch('about-page/toggle/{key}', [App\Http\Controllers\Admin\AboutPageController::class, 'toggleSection'])->name('about-page.toggle');
+
     // Existing content management
     Route::resource('pages', App\Http\Controllers\Admin\PageController::class);
     Route::resource('services', App\Http\Controllers\Admin\ServiceController::class);
