@@ -51,6 +51,27 @@ class AboutPageSetting extends Model
     }
 
     /**
+     * Get image URL for about page settings
+     * Handles both uploaded images (stored in storage) and default images (in assets)
+     */
+    public static function getImageUrl(string $key, ?string $default = null)
+    {
+        $value = self::getValue($key, $default);
+
+        if (!$value) {
+            return $default ? asset($default) : null;
+        }
+
+        // If it's an uploaded image (starts with 'about-page/'), use storage path
+        if (str_starts_with($value, 'about-page/')) {
+            return asset('storage/' . $value);
+        }
+
+        // Otherwise, treat as asset path
+        return asset($value);
+    }
+
+    /**
      * Clear cache when saving
      */
     protected static function booted()

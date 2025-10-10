@@ -37,7 +37,7 @@
             <div class="row row-25 align-items-center">
                 <div class="col-lg-6 col-12 mb-30">
                     <div class="about-image-two">
-                        <img width="560" height="490" src="{{ asset(AboutPageSetting::getValue('welcome_image', 'assets/img/about/about-3.webp')) }}" alt="{{ AboutPageSetting::getValue('welcome_subtitle', 'Welcome to VIS GmbH') }}">
+                        <img width="560" height="490" src="{{ AboutPageSetting::getImageUrl('welcome_image', 'assets/img/about/about-3.webp') }}" alt="{{ AboutPageSetting::getValue('welcome_subtitle', 'Welcome to VIS GmbH') }}">
                         @if(AboutPageSetting::getValue('welcome_video_url'))
                         <span class="video-popup">
                             <a href="{{ AboutPageSetting::getValue('welcome_video_url', '#') }}"><i class="ion-ios-play-outline"></i></a>
@@ -70,7 +70,7 @@
                         <div class="col-lg-4 col-md-6 col-12 section-space--bottom--30">
                             <div class="feature">
                                 <div class="icon">
-                                    <img width="49" height="48" src="{{ asset(AboutPageSetting::getValue('feature_1_icon', 'assets/img/icons/feature-1.webp')) }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_1_title', 'Top Rated') }}">
+                                    <img width="49" height="48" src="{{ AboutPageSetting::getImageUrl('feature_1_icon', 'assets/img/icons/feature-1.webp') }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_1_title', 'Top Rated') }}">
                                 </div>
                                 <div class="content">
                                     <h3>{{ AboutPageSetting::getValue('feature_1_title', 'Top Rated') }}</h3>
@@ -81,7 +81,7 @@
                         <div class="col-lg-4 col-md-6 col-12 section-space--bottom--30">
                             <div class="feature">
                                 <div class="icon">
-                                    <img width="50" height="50" src="{{ asset(AboutPageSetting::getValue('feature_2_icon', 'assets/img/icons/feature-2.webp')) }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_2_title', 'Best Quality') }}">
+                                    <img width="50" height="50" src="{{ AboutPageSetting::getImageUrl('feature_2_icon', 'assets/img/icons/feature-2.webp') }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_2_title', 'Best Quality') }}">
                                 </div>
                                 <div class="content">
                                     <h3>{{ AboutPageSetting::getValue('feature_2_title', 'Best Quality') }}</h3>
@@ -92,7 +92,7 @@
                         <div class="col-lg-4 col-md-6 col-12 section-space--bottom--30">
                             <div class="feature">
                                 <div class="icon">
-                                    <img width="47" height="47" src="{{ asset(AboutPageSetting::getValue('feature_3_icon', 'assets/img/icons/feature-3.webp')) }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_3_title', 'Competitive Pricing') }}">
+                                    <img width="47" height="47" src="{{ AboutPageSetting::getImageUrl('feature_3_icon', 'assets/img/icons/feature-3.webp') }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_3_title', 'Competitive Pricing') }}">
                                 </div>
                                 <div class="content">
                                     <h3>{{ AboutPageSetting::getValue('feature_3_title', 'Competitive Pricing') }}</h3>
@@ -115,12 +115,12 @@
             <div class="about-wrapper row">
                 <div class="col-sm-6 col-12 order-1 order-lg-2">
                     <div class="about-image about-image-1">
-                        <img width="585" height="456" src="{{ asset(AboutPageSetting::getValue('experience_image_1', 'assets/img/about/about-1.webp')) }}" alt="Experience">
+                        <img width="585" height="456" src="{{ AboutPageSetting::getImageUrl('experience_image_1', 'assets/img/about/about-1.webp') }}" alt="Experience">
                     </div>
                 </div>
                 <div class="col-sm-6 col-12 order-2 order-lg-3">
                     <div class="about-image about-image-2">
-                        <img width="585" height="456" src="{{ asset(AboutPageSetting::getValue('experience_image_2', 'assets/img/about/about-2.webp')) }}" alt="Experience">
+                        <img width="585" height="456" src="{{ AboutPageSetting::getImageUrl('experience_image_2', 'assets/img/about/about-2.webp') }}" alt="Experience">
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 order-3 order-lg-1">
@@ -150,22 +150,22 @@
                     <div class="fun-fact-wrapper">
                         <div class="row">
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="60" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_1_icon', 'assets/img/icons/funfact-project.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}">
+                                <img width="60" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_1_icon', 'assets/img/icons/funfact-project.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}">
                                 <h1 class="counter">{{ AboutPageSetting::getValue('funfact_1_number', '598') }}</h1>
                                 <h4>{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="43" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_2_icon', 'assets/img/icons/funfact-clients.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_2_label', 'Clients') }}">
+                                <img width="43" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_2_icon', 'assets/img/icons/funfact-clients.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_2_label', 'Clients') }}">
                                 <h1 class="counter">{{ AboutPageSetting::getValue('funfact_2_number', '128') }}</h1>
                                 <h4>{{ AboutPageSetting::getValue('funfact_2_label', 'Happy Clients') }}</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="32" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_3_icon', 'assets/img/icons/funfact-success.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_3_label', 'Success') }}">
+                                <img width="32" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_3_icon', 'assets/img/icons/funfact-success.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_3_label', 'Success') }}">
                                 <h1 class="counter">{{ AboutPageSetting::getValue('funfact_3_number', '114') }}</h1>
                                 <h4>{{ AboutPageSetting::getValue('funfact_3_label', 'Success Rate %') }}</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="46" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_4_icon', 'assets/img/icons/funfact-award.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_4_label', 'Awards') }}">
+                                <img width="46" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_4_icon', 'assets/img/icons/funfact-award.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_4_label', 'Awards') }}">
                                 <h1 class="counter">{{ AboutPageSetting::getValue('funfact_4_number', '109') }}</h1>
                                 <h4>{{ AboutPageSetting::getValue('funfact_4_label', 'Awards Won') }}</h4>
                             </div>

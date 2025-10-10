@@ -58,7 +58,7 @@
                                 <input type="file" name="settings[{{ $setting->key }}]" id="{{ $setting->key }}" class="form-control" accept="image/*">
                                 @if($setting->value)
                                     <div class="mt-2">
-                                        <img src="{{ asset($setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 100px;">
+                                        <img src="{{ \App\Models\AboutPageSetting::getImageUrl($setting->key, $setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 100px;">
                                     </div>
                                 @endif
                             @else
@@ -95,7 +95,7 @@
                                     <input type="file" name="settings[{{ $key }}]" id="{{ $key }}" class="form-control" accept="image/*">
                                     @if($setting->value)
                                         <div class="mt-2">
-                                            <img src="{{ asset($setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 60px;">
+                                            <img src="{{ \App\Models\AboutPageSetting::getImageUrl($setting->key, $setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 60px;">
                                         </div>
                                     @endif
                                 @elseif($setting->type === 'textarea')
@@ -120,7 +120,7 @@
                                     <input type="file" name="settings[{{ $key }}]" id="{{ $key }}" class="form-control" accept="image/*">
                                     @if($setting->value)
                                         <div class="mt-2">
-                                            <img src="{{ asset($setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 60px;">
+                                            <img src="{{ \App\Models\AboutPageSetting::getImageUrl($setting->key, $setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 60px;">
                                         </div>
                                     @endif
                                 @elseif($setting->type === 'textarea')
@@ -145,7 +145,7 @@
                                     <input type="file" name="settings[{{ $key }}]" id="{{ $key }}" class="form-control" accept="image/*">
                                     @if($setting->value)
                                         <div class="mt-2">
-                                            <img src="{{ asset($setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 60px;">
+                                            <img src="{{ \App\Models\AboutPageSetting::getImageUrl($setting->key, $setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 60px;">
                                         </div>
                                     @endif
                                 @elseif($setting->type === 'textarea')
@@ -185,7 +185,7 @@
                                 <input type="file" name="settings[{{ $setting->key }}]" id="{{ $setting->key }}" class="form-control" accept="image/*">
                                 @if($setting->value)
                                     <div class="mt-2">
-                                        <img src="{{ asset($setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 100px;">
+                                        <img src="{{ \App\Models\AboutPageSetting::getImageUrl($setting->key, $setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 100px;">
                                     </div>
                                 @endif
                             @elseif($setting->type === 'number')
@@ -226,7 +226,7 @@
                                         <input type="file" name="settings[{{ $key }}]" id="{{ $key }}" class="form-control" accept="image/*">
                                         @if($setting->value)
                                             <div class="mt-2">
-                                                <img src="{{ asset($setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 40px;">
+                                                <img src="{{ \App\Models\AboutPageSetting::getImageUrl($setting->key, $setting->value) }}" alt="Preview" class="img-thumbnail" style="max-height: 40px;">
                                             </div>
                                         @endif
                                     @elseif($setting->type === 'number')
