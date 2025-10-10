@@ -40,6 +40,14 @@ class AboutPageSettingSeeder extends Seeder
                 'is_active' => true,
                 'sort_order' => 1,
             ],
+            [
+                'key' => 'breadcrumb_background',
+                'value' => 'assets/img/backgrounds/funfact-bg.webp',
+                'type' => 'image',
+                'group' => 'breadcrumb',
+                'is_active' => true,
+                'sort_order' => 2,
+            ],
 
             // Welcome Section
             [

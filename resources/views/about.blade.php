@@ -12,7 +12,7 @@
 
 @section('content')
 <!--====================  breadcrumb area ====================-->
-<div class="breadcrumb-area bg-img" data-bg="{{ asset('assets/img/backgrounds/funfact-bg.webp') }}">
+<div class="breadcrumb-area bg-img" data-bg="{{ AboutPageSetting::getBreadcrumbBackground() }}">
     <div class="container">
         <div class="row">
             <div class="col">

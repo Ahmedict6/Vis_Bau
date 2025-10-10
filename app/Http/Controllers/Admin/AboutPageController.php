@@ -43,6 +43,8 @@ class AboutPageController extends Controller
                         $assetsDir = 'assets/img/icons/';
                     } elseif (str_contains($key, 'image')) {
                         $assetsDir = 'assets/img/about/';
+                    } elseif (str_contains($key, 'breadcrumb_background')) {
+                        $assetsDir = 'assets/img/backgrounds/';
                     }
 
                     // Ensure directory exists

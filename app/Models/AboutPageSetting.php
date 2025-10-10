@@ -67,6 +67,14 @@ class AboutPageSetting extends Model
     }
 
     /**
+     * Get breadcrumb background URL
+     */
+    public static function getBreadcrumbBackground()
+    {
+        return self::getImageUrl('breadcrumb_background', 'assets/img/backgrounds/funfact-bg.webp');
+    }
+
+    /**
      * Clear cache when saving
      */
     protected static function booted()
