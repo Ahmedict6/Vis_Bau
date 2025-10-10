@@ -88,7 +88,7 @@
                                         </div>
                                         @if($service->icon)
                                         <div class="icon">
-                                            <img src="{{ asset('assets/img/services/' . $service->icon) }}" alt="icon" style="width: 60px; height: 60px; object-fit: contain;">
+                                            <img width="60" height="60" src="{{ asset('assets/img/services/' . $service->icon) }}" alt="icon" style="object-fit: contain;">
                                         </div>
                                         @endif
                                     </div>
