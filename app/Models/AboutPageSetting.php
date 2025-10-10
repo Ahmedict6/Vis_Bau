@@ -52,7 +52,7 @@ class AboutPageSetting extends Model
 
     /**
      * Get image URL for about page settings
-     * Handles both uploaded images (stored in storage) and default images (in assets)
+     * Handles both uploaded images (stored in assets) and default images (in assets)
      */
     public static function getImageUrl(string $key, ?string $default = null)
     {
@@ -62,12 +62,7 @@ class AboutPageSetting extends Model
             return $default ? asset($default) : null;
         }
 
-        // If it's an uploaded image (starts with 'about-page/'), use storage path
-        if (str_starts_with($value, 'about-page/')) {
-            return asset('storage/' . $value);
-        }
-
-        // Otherwise, treat as asset path
+        // All images are now stored in assets directory
         return asset($value);
     }
 

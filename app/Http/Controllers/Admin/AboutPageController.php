@@ -36,12 +36,31 @@ class AboutPageController extends Controller
                 if ($setting->type === 'image' && $request->hasFile("settings.{$key}")) {
                     $file = $request->file("settings.{$key}");
                     $filename = time() . '_' . $file->getClientOriginalName();
-                    $path = $file->storeAs('about-page', $filename, 'public');
-                    $value = $path;
 
-                    // Delete old image if it exists in storage
-                    if ($setting->value && str_starts_with($setting->value, 'about-page/')) {
-                        Storage::disk('public')->delete($setting->value);
+                    // Determine the appropriate assets subdirectory based on the setting key
+                    $assetsDir = 'assets/img/about-page/';
+                    if (str_contains($key, 'icon')) {
+                        $assetsDir = 'assets/img/icons/';
+                    } elseif (str_contains($key, 'image')) {
+                        $assetsDir = 'assets/img/about/';
+                    }
+
+                    // Ensure directory exists
+                    $fullPath = public_path($assetsDir);
+                    if (!file_exists($fullPath)) {
+                        mkdir($fullPath, 0755, true);
+                    }
+
+                    // Move file to assets directory
+                    $file->move($fullPath, $filename);
+                    $value = $assetsDir . $filename;
+
+                    // Delete old image if it exists
+                    if ($setting->value) {
+                        $oldPath = public_path($setting->value);
+                        if (file_exists($oldPath)) {
+                            unlink($oldPath);
+                        }
                     }
                 } elseif ($setting->type === 'boolean') {
                     $value = $request->has("settings.{$key}") ? '1' : '0';
