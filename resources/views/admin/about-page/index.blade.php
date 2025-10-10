@@ -39,7 +39,8 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0"><i class="fas fa-home me-2"></i>Welcome Section</h5>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="settings[welcome_show]" id="welcome_show" {{ ($settings['welcome']->firstWhere('key', 'welcome_show')->value ?? '1') == '1' ? 'checked' : '' }}>
+                <input type="hidden" name="settings[welcome_show]" value="0">
+                <input class="form-check-input" type="checkbox" name="settings[welcome_show]" id="welcome_show" value="1" {{ ($settings['welcome']->firstWhere('key', 'welcome_show')->value ?? '1') == '1' ? 'checked' : '' }}>
                 <label class="form-check-label" for="welcome_show">Show Section</label>
             </div>
         </div>
@@ -77,7 +78,8 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0"><i class="fas fa-star me-2"></i>Features Section</h5>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="settings[features_show]" id="features_show" {{ ($settings['features']->firstWhere('key', 'features_show')->value ?? '1') == '1' ? 'checked' : '' }}>
+                <input type="hidden" name="settings[features_show]" value="0">
+                <input class="form-check-input" type="checkbox" name="settings[features_show]" id="features_show" value="1" {{ ($settings['features']->firstWhere('key', 'features_show')->value ?? '1') == '1' ? 'checked' : '' }}>
                 <label class="form-check-label" for="features_show">Show Section</label>
             </div>
         </div>
@@ -166,7 +168,8 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0"><i class="fas fa-award me-2"></i>Experience Section</h5>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="settings[experience_show]" id="experience_show" {{ ($settings['experience']->firstWhere('key', 'experience_show')->value ?? '1') == '1' ? 'checked' : '' }}>
+                <input type="hidden" name="settings[experience_show]" value="0">
+                <input class="form-check-input" type="checkbox" name="settings[experience_show]" id="experience_show" value="1" {{ ($settings['experience']->firstWhere('key', 'experience_show')->value ?? '1') == '1' ? 'checked' : '' }}>
                 <label class="form-check-label" for="experience_show">Show Section</label>
             </div>
         </div>
@@ -205,7 +208,8 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Fun Facts Section</h5>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="settings[funfacts_show]" id="funfacts_show" {{ ($settings['funfacts']->firstWhere('key', 'funfacts_show')->value ?? '1') == '1' ? 'checked' : '' }}>
+                <input type="hidden" name="settings[funfacts_show]" value="0">
+                <input class="form-check-input" type="checkbox" name="settings[funfacts_show]" id="funfacts_show" value="1" {{ ($settings['funfacts']->firstWhere('key', 'funfacts_show')->value ?? '1') == '1' ? 'checked' : '' }}>
                 <label class="form-check-label" for="funfacts_show">Show Section</label>
             </div>
         </div>
@@ -253,7 +257,8 @@
                 @foreach($settings['sections'] ?? [] as $setting)
                     <div class="col-md-4 mb-3">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="settings[{{ $setting->key }}]" id="{{ $setting->key }}" {{ $setting->value == '1' ? 'checked' : '' }}>
+                            <input type="hidden" name="settings[{{ $setting->key }}]" value="0">
+                            <input class="form-check-input" type="checkbox" name="settings[{{ $setting->key }}]" id="{{ $setting->key }}" value="1" {{ $setting->value == '1' ? 'checked' : '' }}>
                             <label class="form-check-label" for="{{ $setting->key }}">
                                 {{ ucwords(str_replace('_', ' ', str_replace('_show', '', $setting->key))) }} Section
                             </label>

@@ -65,7 +65,7 @@ class AboutPageController extends Controller
                         }
                     }
                 } elseif ($setting->type === 'boolean') {
-                    $value = $request->has("settings.{$key}") ? '1' : '0';
+                    $value = $request->settings[$key] ?? '0';
                 }
 
                 $setting->update(['value' => $value]);
