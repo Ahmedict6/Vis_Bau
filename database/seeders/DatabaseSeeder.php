@@ -27,6 +27,9 @@ class DatabaseSeeder extends Seeder
         // Seed section settings first
         $this->call(SectionSettingSeeder::class);
 
+        // Seed about page settings
+        $this->call(AboutPageSettingSeeder::class);
+
         // Create admin user if not exists
         User::firstOrCreate(
             ['email' => 'admin@vis-bau.com'],
