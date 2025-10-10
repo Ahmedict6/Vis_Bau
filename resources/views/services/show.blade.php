@@ -4,24 +4,24 @@
 @section('meta_description', $service->description)
 
 @section('content')
-<div class="page-title-area bg-img" data-bg="{{ asset('assets/img/backgrounds/about.webp') }}">
+<!--====================  breadcrumb area ====================-->
+<div class="breadcrumb-area bg-img" data-bg="{{ \App\Models\AboutPageSetting::getBreadcrumbBackground() }}">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="page-title-content text-center">
-                    <h2 class="title">{{ $service->title }}</h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('services.index') }}">Services</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $service->title }}</li>
-                        </ol>
-                    </nav>
+            <div class="col">
+                <div class="page-banner text-center">
+                    <h1>{{ $service->title }}</h1>
+                    <ul class="page-breadcrumb">
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('services.index') }}">Services</a></li>
+                        <li>{{ $service->title }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!--====================  End of breadcrumb area  ====================-->
 
 <div class="service-details-area section-space--inner--120">
     <div class="container">

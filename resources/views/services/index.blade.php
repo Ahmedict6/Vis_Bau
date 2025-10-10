@@ -4,23 +4,23 @@
 @section('meta_description', 'Discover our comprehensive construction services and solutions.')
 
 @section('content')
-<div class="page-title-area bg-img" data-bg="{{ asset('assets/img/backgrounds/funfact-bg.webp') }}">
+<!--====================  breadcrumb area ====================-->
+<div class="breadcrumb-area bg-img" data-bg="{{ \App\Models\AboutPageSetting::getBreadcrumbBackground() }}">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="page-title-content text-center">
-                    <h2 class="title">Our Services</h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Services</li>
-                        </ol>
-                    </nav>
+            <div class="col">
+                <div class="page-banner text-center">
+                    <h1>Our Services</h1>
+                    <ul class="page-breadcrumb">
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li>Services</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!--====================  End of breadcrumb area  ====================-->
 
 <div class="service-grid-area section-space--inner--120">
     <div class="container">
