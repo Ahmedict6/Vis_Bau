@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'About Us - VIS GmbH')
-@section('meta_description', 'Learn more about our construction company and our commitment to innovative and reliable building projects.')
+@php
+    use App\Models\AboutPageSetting;
+    $pageTitle = AboutPageSetting::getValue('page_title', 'About Us - VIS GmbH');
+    $metaDesc = AboutPageSetting::getValue('meta_description', 'Learn more about our construction company');
+    $breadcrumbTitle = AboutPageSetting::getValue('breadcrumb_title', 'About Us');
+@endphp
+
+@section('title', $pageTitle)
+@section('meta_description', $metaDesc)
 
 @section('content')
 <!--====================  breadcrumb area ====================-->
@@ -10,10 +17,10 @@
         <div class="row">
             <div class="col">
                 <div class="page-banner text-center">
-                    <h1>About Us</h1>
+                    <h1>{{ $breadcrumbTitle }}</h1>
                     <ul class="page-breadcrumb">
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li>About Us</li>
+                        <li>{{ $breadcrumbTitle }}</li>
                     </ul>
                 </div>
             </div>
@@ -24,32 +31,37 @@
 
 <div class="page-wrapper section-space--inner--top--120">
     <!--About section start-->
+    @if(AboutPageSetting::getValue('welcome_show', '1') == '1')
     <div class="about-section section-space--inner--bottom--120">
     <div class="container">
             <div class="row row-25 align-items-center">
                 <div class="col-lg-6 col-12 mb-30">
                     <div class="about-image-two">
-                        <img width="560" height="490" src="{{ asset('assets/img/about/about-3.webp') }}" alt="">
+                        <img width="560" height="490" src="{{ asset(AboutPageSetting::getValue('welcome_image', 'assets/img/about/about-3.webp')) }}" alt="{{ AboutPageSetting::getValue('welcome_subtitle', 'Welcome to VIS GmbH') }}">
+                        @if(AboutPageSetting::getValue('welcome_video_url'))
                         <span class="video-popup">
-                            <a href="https://www.youtube.com/watch?v=LTauBc7lDIg"><i class="ion-ios-play-outline"></i></a>
+                            <a href="{{ AboutPageSetting::getValue('welcome_video_url', '#') }}"><i class="ion-ios-play-outline"></i></a>
                         </span>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 mb-30">
                     <div class="about-content-two">
-                        <h3>Welcome to VIS GmbH</h3>
-                        <h1>50 Years of Experience in Industry</h1>
-                        <h4>We are ready to build your dream home Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, beatae.</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam repudiandae odit dolorum quis laudantium impedit beatae perferendis natus, hic libero sed atque quibusdam possimus error, voluptate est molestiae doloremque necessitatibus illum rerum sunt! Ad sunt obcaecati voluptatem sint sequi quos, qui non deleniti a praesentium, sapiente accusantium odit.</p>
+                        <h3>{{ AboutPageSetting::getValue('welcome_subtitle', 'Welcome to VIS GmbH') }}</h3>
+                        <h1>{{ AboutPageSetting::getValue('welcome_title', '50 Years of Experience in Industry') }}</h1>
+                        <h4>{{ AboutPageSetting::getValue('welcome_heading', 'We are ready to build your dream project') }}</h4>
+                        <p>{{ AboutPageSetting::getValue('welcome_content', 'At VIS GmbH, we bring together expertise and innovation.') }}</p>
                         <a href="{{ route('services.index') }}" class="ht-btn--default ht-btn--default--dark-hover section-space--top--20">Our Services</a>
             </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
     <!--About section end-->
 
     <!--Feature section start-->
+    @if(AboutPageSetting::getValue('features_show', '1') == '1')
     <div class="feature-section section-space--inner--100 grey-bg">
     <div class="container">
             <div class="col-lg-12">
@@ -58,33 +70,33 @@
                         <div class="col-lg-4 col-md-6 col-12 section-space--bottom--30">
                             <div class="feature">
                                 <div class="icon">
-                                    <img width="49" height="48" src="{{ asset('assets/img/icons/feature-1.webp') }}" class="img-fluid" alt="">
+                                    <img width="49" height="48" src="{{ asset(AboutPageSetting::getValue('feature_1_icon', 'assets/img/icons/feature-1.webp')) }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_1_title', 'Top Rated') }}">
                                 </div>
                                 <div class="content">
-                                    <h3>Top Rated</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit. Officia odio eum corporis consequatur.</p>
+                                    <h3>{{ AboutPageSetting::getValue('feature_1_title', 'Top Rated') }}</h3>
+                                    <p>{{ AboutPageSetting::getValue('feature_1_content', 'Quality service and expertise.') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-12 section-space--bottom--30">
                             <div class="feature">
                                 <div class="icon">
-                                    <img width="50" height="50" src="{{ asset('assets/img/icons/feature-2.webp') }}" class="img-fluid" alt="">
+                                    <img width="50" height="50" src="{{ asset(AboutPageSetting::getValue('feature_2_icon', 'assets/img/icons/feature-2.webp')) }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_2_title', 'Best Quality') }}">
                                 </div>
                                 <div class="content">
-                                    <h3>Best Quality</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit. Officia odio eum corporis consequatur.</p>
+                                    <h3>{{ AboutPageSetting::getValue('feature_2_title', 'Best Quality') }}</h3>
+                                    <p>{{ AboutPageSetting::getValue('feature_2_content', 'Premium materials and skilled craftsmen.') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-12 section-space--bottom--30">
                             <div class="feature">
                                 <div class="icon">
-                                    <img width="47" height="47" src="{{ asset('assets/img/icons/feature-3.webp') }}" class="img-fluid" alt="">
+                                    <img width="47" height="47" src="{{ asset(AboutPageSetting::getValue('feature_3_icon', 'assets/img/icons/feature-3.webp')) }}" class="img-fluid" alt="{{ AboutPageSetting::getValue('feature_3_title', 'Competitive Pricing') }}">
                                 </div>
                                 <div class="content">
-                                    <h3>Low Cost</h3>
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit. Officia odio eum corporis consequatur.</p>
+                                    <h3>{{ AboutPageSetting::getValue('feature_3_title', 'Competitive Pricing') }}</h3>
+                                    <p>{{ AboutPageSetting::getValue('feature_3_content', 'Best value for your investment.') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -93,40 +105,44 @@
             </div>
         </div>
     </div>
+    @endif
     <!--Feature section end-->
 
     <!--About section start-->
+    @if(AboutPageSetting::getValue('experience_show', '1') == '1')
     <div class="about-section section-space--inner--120">
         <div class="container">
             <div class="about-wrapper row">
                 <div class="col-sm-6 col-12 order-1 order-lg-2">
                     <div class="about-image about-image-1">
-                        <img width="585" height="456" src="{{ asset('assets/img/about/about-1.webp') }}" alt="">
+                        <img width="585" height="456" src="{{ asset(AboutPageSetting::getValue('experience_image_1', 'assets/img/about/about-1.webp')) }}" alt="Experience">
                     </div>
                 </div>
                 <div class="col-sm-6 col-12 order-2 order-lg-3">
                     <div class="about-image about-image-2">
-                        <img width="585" height="456" src="{{ asset('assets/img/about/about-2.webp') }}" alt="">
+                        <img width="585" height="456" src="{{ asset(AboutPageSetting::getValue('experience_image_2', 'assets/img/about/about-2.webp')) }}" alt="Experience">
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 order-3 order-lg-1">
                     <div class="about-content about-content-1">
-                        <h1><span>50</span>Years of Experience</h1>
-                        <p>ligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor ellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum atibus saepe eveniet ut et voluptates repudiandae sint et molestiae</p>
+                        <h1><span>{{ AboutPageSetting::getValue('experience_years', '50') }}</span>{{ AboutPageSetting::getValue('experience_title', 'Years of Experience') }}</h1>
+                        <p>{{ AboutPageSetting::getValue('experience_content_1', 'Our extensive experience in the construction industry.') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 order-4">
                     <div class="about-content about-content-2">
-                        <p>ligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor ellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum atibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapie</p>
+                        <p>{{ AboutPageSetting::getValue('experience_content_2', 'We deliver outstanding results with modern techniques.') }}</p>
                         <a href="{{ route('contact') }}" class="ht-btn--default ht-btn--default--dark-hover section-space--top--20">Contact us</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
     <!--About section end-->
 
     <!--====================  fun fact area ====================-->
+    @if(AboutPageSetting::getValue('funfacts_show', '1') == '1')
     <div class="funfact-section section-space--inner--100 bg-img" data-bg="{{ asset('assets/img/backgrounds/funfact-bg.webp') }}">
         <div class="container">
             <div class="row">
@@ -134,24 +150,24 @@
                     <div class="fun-fact-wrapper">
                         <div class="row">
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="60" height="60" src="{{ asset('assets/img/icons/funfact-project.webp') }}" alt="">
-                                <h1 class="counter">598</h1>
-                                <h4>Project</h4>
+                                <img width="60" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_1_icon', 'assets/img/icons/funfact-project.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}">
+                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_1_number', '598') }}</h1>
+                                <h4>{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="43" height="60" src="{{ asset('assets/img/icons/funfact-clients.webp') }}" alt="">
-                                <h1 class="counter">128</h1>
-                                <h4>Clients</h4>
+                                <img width="43" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_2_icon', 'assets/img/icons/funfact-clients.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_2_label', 'Clients') }}">
+                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_2_number', '128') }}</h1>
+                                <h4>{{ AboutPageSetting::getValue('funfact_2_label', 'Happy Clients') }}</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="32" height="60" src="{{ asset('assets/img/icons/funfact-success.webp') }}" alt="">
-                                <h1 class="counter">114</h1>
-                                <h4>Success</h4>
+                                <img width="32" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_3_icon', 'assets/img/icons/funfact-success.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_3_label', 'Success') }}">
+                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_3_number', '114') }}</h1>
+                                <h4>{{ AboutPageSetting::getValue('funfact_3_label', 'Success Rate %') }}</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="46" height="60" src="{{ asset('assets/img/icons/funfact-award.webp') }}" alt="">
-                                <h1 class="counter">109</h1>
-                                <h4>Awards</h4>
+                                <img width="46" height="60" src="{{ asset(AboutPageSetting::getValue('funfact_4_icon', 'assets/img/icons/funfact-award.webp')) }}" alt="{{ AboutPageSetting::getValue('funfact_4_label', 'Awards') }}">
+                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_4_number', '109') }}</h1>
+                                <h4>{{ AboutPageSetting::getValue('funfact_4_label', 'Awards Won') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -159,9 +175,11 @@
             </div>
         </div>
     </div>
+    @endif
     <!--====================  End of fun fact area  ====================-->
 
     <!--====================  team member area ====================-->
+    @if(AboutPageSetting::getValue('team_show', '1') == '1')
     <div class="team-member-area section-space--inner--120">
         <div class="container">
             <div class="row">
@@ -286,9 +304,11 @@
             </div>
         </div>
     </div>
+    @endif
     <!--====================  End of team member area  ====================-->
 
     <!--====================  testimonial slider area ====================-->
+    @if(AboutPageSetting::getValue('testimonials_show', '1') == '1')
     <div class="testimonial-slider-area testimonial-slider-area-bg section-space--inner--120 bg-img" data-bg="{{ asset('assets/img/backgrounds/testimonial.webp') }}">
         <div class="container">
             <div class="row">
@@ -369,10 +389,11 @@
             </div>
         </div>
     </div>
+    @endif
     <!--====================  End of testimonial slider area  ====================-->
 
     <!--====================  brand logo area ====================-->
-    @if(\App\Models\SectionSetting::isSectionActive('brand_logos'))
+    @if(AboutPageSetting::getValue('brand_logos_show', '1') == '1' && \App\Models\SectionSetting::isSectionActive('brand_logos'))
     <div class="brand-logo-slider-area section-space--inner--60">
         <div class="container">
             <div class="row">

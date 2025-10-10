@@ -501,6 +501,10 @@
 
                 <div class="nav-section">
                     <div class="nav-section-title">Content Management</div>
+                    <a class="nav-link {{ request()->routeIs('admin.about-page.*') ? 'active' : '' }}" href="{{ route('admin.about-page.index') }}">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About Page</span>
+                    </a>
                     <a class="nav-link {{ request()->routeIs('admin.blog-posts.*') ? 'active' : '' }}" href="{{ route('admin.blog-posts.index') }}">
                         <i class="fas fa-blog"></i>
                         <span>Blog Posts</span>
