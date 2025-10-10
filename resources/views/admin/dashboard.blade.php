@@ -187,6 +187,107 @@
                     </div>
                 </div>
 
+                <!-- Cache Management -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-server me-2"></i>Cache Management
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6 mb-3">
+                                        <div class="d-flex align-items-center justify-content-between p-3 border rounded">
+                                            <div>
+                                                <h6 class="mb-1">Clear All Caches</h6>
+                                                <small class="text-muted">Clear application, config, route, and view caches</small>
+                                            </div>
+                                            <form action="{{ route('admin.cache.clear-all') }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to clear all caches?')">
+                                                    <i class="fas fa-trash-alt me-1"></i>Clear All
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <div class="d-flex align-items-center justify-content-between p-3 border rounded">
+                                            <div>
+                                                <h6 class="mb-1">Application Cache</h6>
+                                                <small class="text-muted">Clear data cache only</small>
+                                            </div>
+                                            <form action="{{ route('admin.cache.clear-app') }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-broom me-1"></i>Clear
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <div class="d-flex align-items-center justify-content-between p-3 border rounded">
+                                            <div>
+                                                <h6 class="mb-1">Configuration Cache</h6>
+                                                <small class="text-muted">Clear cached configuration files</small>
+                                            </div>
+                                            <form action="{{ route('admin.cache.clear-config') }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-info btn-sm">
+                                                    <i class="fas fa-cog me-1"></i>Clear
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <div class="d-flex align-items-center justify-content-between p-3 border rounded">
+                                            <div>
+                                                <h6 class="mb-1">View Cache</h6>
+                                                <small class="text-muted">Clear compiled blade templates</small>
+                                            </div>
+                                            <form action="{{ route('admin.cache.clear-view') }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-eye me-1"></i>Clear
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <div class="d-flex align-items-center justify-content-between p-3 border rounded">
+                                            <div>
+                                                <h6 class="mb-1">Route Cache</h6>
+                                                <small class="text-muted">Clear cached routes</small>
+                                            </div>
+                                            <form action="{{ route('admin.cache.clear-route') }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-route me-1"></i>Clear
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 mb-3">
+                                        <div class="d-flex align-items-center justify-content-between p-3 border rounded">
+                                            <div>
+                                                <h6 class="mb-1">Optimize Application</h6>
+                                                <small class="text-muted">Clear then cache config, routes, and views</small>
+                                            </div>
+                                            <form action="{{ route('admin.cache.optimize') }}" method="POST" class="d-inline">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success btn-sm">
+                                                    <i class="fas fa-bolt me-1"></i>Optimize
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Recent Contact Messages -->
                 <div class="row">
                     <div class="col-12">

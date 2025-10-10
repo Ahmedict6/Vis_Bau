@@ -78,6 +78,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     Route::put('section-settings/{sectionSetting}', [App\Http\Controllers\Admin\SectionSettingController::class, 'update'])->name('section-settings.update');
     Route::post('section-settings/update-order', [App\Http\Controllers\Admin\SectionSettingController::class, 'updateOrder'])->name('section-settings.update-order');
 
+    // Cache Management
+    Route::post('cache/clear-all', [App\Http\Controllers\Admin\CacheController::class, 'clearAll'])->name('cache.clear-all');
+    Route::post('cache/clear-app', [App\Http\Controllers\Admin\CacheController::class, 'clearAppCache'])->name('cache.clear-app');
+    Route::post('cache/clear-config', [App\Http\Controllers\Admin\CacheController::class, 'clearConfigCache'])->name('cache.clear-config');
+    Route::post('cache/clear-route', [App\Http\Controllers\Admin\CacheController::class, 'clearRouteCache'])->name('cache.clear-route');
+    Route::post('cache/clear-view', [App\Http\Controllers\Admin\CacheController::class, 'clearViewCache'])->name('cache.clear-view');
+    Route::post('cache/optimize', [App\Http\Controllers\Admin\CacheController::class, 'optimize'])->name('cache.optimize');
+
     // Existing content management
     Route::resource('pages', App\Http\Controllers\Admin\PageController::class);
     Route::resource('services', App\Http\Controllers\Admin\ServiceController::class);
