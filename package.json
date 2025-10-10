@@ -1,0 +1,43 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "test": "playwright test",
+        "test:ui": "playwright test --ui",
+        "test:headed": "playwright test --headed",
+        "test:debug": "playwright test --debug",
+        "test:admin": "playwright test tests/playwright/admin/",
+        "test:auth": "playwright test tests/playwright/admin/auth.spec.js",
+        "test:crud": "playwright test tests/playwright/admin/pages.spec.js tests/playwright/admin/services.spec.js tests/playwright/admin/projects.spec.js tests/playwright/admin/blog-posts.spec.js",
+        "test:integration": "playwright test tests/playwright/admin/integration.spec.js",
+        "test:performance": "playwright test tests/playwright/admin/performance.spec.js",
+        "test:report": "playwright show-report",
+        "test:install": "playwright install"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.55.1",
+        "@tailwindcss/forms": "^0.5.2",
+        "@tailwindcss/vite": "^4.0.0",
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "postcss": "^8.4.31",
+        "tailwindcss": "^3.1.0",
+        "vite": "^7.0.7"
+    },
+    "name": "saly-cms",
+    "version": "1.0.0",
+    "description": "A comprehensive Content Management System built with Laravel for construction companies. This CMS allows you to manage all aspects of your construction website including hero sliders, services, projects, testimonials, team members, job listings, and more.",
+    "main": "vite.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

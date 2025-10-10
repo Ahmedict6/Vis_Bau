@@ -1,0 +1,241 @@
+/* Google Translate Widget Styles */
+.google-translate-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: 'Poppins', sans-serif;
+}
+
+.translate-toggle {
+    width: 50px;
+    height: 50px;
+    background: #f8f9fa;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.translate-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+}
+
+.globe-icon {
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+.translate-toggle:hover .globe-icon {
+    color: #007bff;
+}
+
+.translate-dropdown {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: transparent;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    width: 230px;
+    height: 290px;
+    border: none;
+    pointer-events: auto;
+}
+
+.translate-dropdown::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 230px;
+    height: 290px;
+    background: radial-gradient(circle at 85% 85%, rgba(0,0,0,0.12), rgba(0,0,0,0) 70%);
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.translate-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Flags fly to positions set by JS */
+
+/* Grid layout container */
+.language-flags {
+    position: relative;
+    width: 200px;
+    height: 260px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Grid rows for better organization */
+.flag-row {
+    display: contents;
+}
+
+.flag-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-self: center;
+    align-self: center;
+}
+
+.flag-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.flag-btn.active {
+    border: 3px solid #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.flag-flag {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Subtle pulse animation for flags */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+.flag-btn .flag-flag {
+    animation: pulse 4s ease-in-out infinite;
+    animation-delay: var(--pulse-delay, 0ms);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .google-translate-widget {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .translate-toggle {
+        width: 45px;
+        height: 45px;
+    }
+
+    .translate-dropdown {
+        bottom: 55px;
+        right: -10px;
+        width: 200px;
+        height: 250px;
+    }
+
+    .language-flags {
+        width: 180px;
+        height: 230px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .flag-btn {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Hide Google Translate default widget */
+
+/* Force hide Google top banner and gadget completely */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-banner,
+.goog-te-gadget-icon,
+.goog-te-gadget,
+#google_translate_element .skiptranslate { display: none !important; }
+
+/* Hide wrapper Google adds at top */
+body > .skiptranslate { display: none !important; }
+
+html, body { top: 0 !important; position: static !important; }
+
+/* Also hide gadget simple link if ever visible */
+.goog-te-gadget-simple { display: none !important; }
+
+/* Hide Google Translate widget visually but keep functional */
+#google_translate_element {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: visible !important;
+    z-index: -1 !important;
+}
+
+/* Hide the visual parts but keep select dropdown functional */
+.goog-te-gadget {
+    font-size: 0 !important;
+    color: transparent !important;
+}
+
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.goog-te-gadget img {
+    display: none !important;
+}
+
+.goog-te-combo {
+    /* Keep the dropdown but make it invisible and non-interactive */
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Animation for flag appearance */
+@keyframes flagAppear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.flag-btn {
+    animation: flagAppear 0.3s ease forwards;
+}
