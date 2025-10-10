@@ -196,17 +196,12 @@
             </div>
             <div class="col-lg-5 offset-lg-1 col-md-12">
                 <div class="cta-video-image">
-                    <div class="video-popup">
-                        <a href="https://www.youtube.com/watch?v=OrS-93U4AYQ">
-                            <div class="cta-video-image__image">
-                                <img width="470" height="523" src="{{ asset('assets/img/backgrounds/video-cta.webp') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="cta-video-image__icon">
-                                <i class="ion-ios-play"></i>
-                            </div>
-                        </a>
+                    <div class="video-container">
+                        <video width="470" height="523" controls class="img-fluid" poster="{{ asset('assets/img/backgrounds/video-cta.webp') }}">
+                            <source src="{{ asset('assets/vid/home_page.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-
                 </div>
             </div>
         </div>
