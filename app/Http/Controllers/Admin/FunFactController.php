@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\FunFact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class FunFactController extends Controller
 {
@@ -37,6 +38,9 @@ class FunFactController extends Controller
         }
 
         FunFact::create($data);
+
+        // Invalidate homepage cache so changes reflect immediately
+        Cache::forget('homepage_data');
 
         return redirect()->route('admin.fun-facts.index')
             ->with('success', 'Fun fact created successfully.');
@@ -79,6 +83,9 @@ class FunFactController extends Controller
 
         $funFact->update($data);
 
+        // Invalidate homepage cache so changes reflect immediately
+        Cache::forget('homepage_data');
+
         return redirect()->route('admin.fun-facts.index')
             ->with('success', 'Fun fact updated successfully.');
     }
@@ -86,6 +93,9 @@ class FunFactController extends Controller
     public function destroy(FunFact $funFact)
     {
         $funFact->delete();
+
+        // Invalidate homepage cache so changes reflect immediately
+        Cache::forget('homepage_data');
 
         return redirect()->route('admin.fun-facts.index')
             ->with('success', 'Fun fact deleted successfully.');

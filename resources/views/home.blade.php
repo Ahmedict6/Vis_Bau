@@ -147,7 +147,7 @@
                         @forelse($funFacts as $fact)
                         <div class="single-fact col-md-3 col-6 section-space--bottom--30">
                             @if($fact->icon)
-                            <img width="60" height="60" src="{{ asset('assets/img/icons/' . $fact->icon) }}" alt="">
+                            <img width="60" height="60" src="{{ asset('assets/img/fun-facts/' . $fact->icon) }}" alt="">
                             @endif
                             <h1 class="counter">{{ $fact->number }}</h1>
                             <h4>{{ $fact->title }}</h4>

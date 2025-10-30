@@ -149,26 +149,39 @@
                 <div class="col-lg-12">
                     <div class="fun-fact-wrapper">
                         <div class="row">
+                            @php
+                                $funFacts = \App\Models\FunFact::where('is_active', true)->orderBy('sort_order')->get();
+                            @endphp
+                            @forelse($funFacts as $fact)
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="60" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_1_icon', 'assets/img/icons/funfact-project.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}">
-                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_1_number', '598') }}</h1>
-                                <h4>{{ AboutPageSetting::getValue('funfact_1_label', 'Projects') }}</h4>
+                                @if($fact->icon)
+                                <img width="60" height="60" src="{{ asset('assets/img/fun-facts/' . $fact->icon) }}" alt="">
+                                @endif
+                                <h1 class="counter">{{ $fact->number }}</h1>
+                                <h4>{{ $fact->title }}</h4>
+                            </div>
+                            @empty
+                            <div class="single-fact col-md-3 col-6 section-space--bottom--30">
+                                <img width="60" height="60" src="{{ asset('assets/img/icons/funfact-project.webp') }}" alt="Projects">
+                                <h1 class="counter">150</h1>
+                                <h4>Projects</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="43" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_2_icon', 'assets/img/icons/funfact-clients.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_2_label', 'Clients') }}">
-                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_2_number', '128') }}</h1>
-                                <h4>{{ AboutPageSetting::getValue('funfact_2_label', 'Happy Clients') }}</h4>
+                                <img width="43" height="60" src="{{ asset('assets/img/icons/funfact-clients.webp') }}" alt="Clients">
+                                <h1 class="counter">95</h1>
+                                <h4>Happy Clients</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="32" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_3_icon', 'assets/img/icons/funfact-success.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_3_label', 'Success') }}">
-                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_3_number', '114') }}</h1>
-                                <h4>{{ AboutPageSetting::getValue('funfact_3_label', 'Success Rate %') }}</h4>
+                                <img width="32" height="60" src="{{ asset('assets/img/icons/funfact-success.webp') }}" alt="Success">
+                                <h1 class="counter">98</h1>
+                                <h4>Success Rate %</h4>
                             </div>
                             <div class="single-fact col-md-3 col-6 section-space--bottom--30">
-                                <img width="46" height="60" src="{{ AboutPageSetting::getImageUrl('funfact_4_icon', 'assets/img/icons/funfact-award.webp') }}" alt="{{ AboutPageSetting::getValue('funfact_4_label', 'Awards') }}">
-                                <h1 class="counter">{{ AboutPageSetting::getValue('funfact_4_number', '109') }}</h1>
-                                <h4>{{ AboutPageSetting::getValue('funfact_4_label', 'Awards Won') }}</h4>
+                                <img width="46" height="60" src="{{ asset('assets/img/icons/funfact-award.webp') }}" alt="Awards">
+                                <h1 class="counter">25</h1>
+                                <h4>Years Experience</h4>
                             </div>
+                            @endforelse
                         </div>
                     </div>
                 </div>
