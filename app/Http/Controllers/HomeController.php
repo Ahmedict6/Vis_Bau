@@ -13,6 +13,7 @@ use App\Models\Testimonial;
 use App\Models\TeamMember;
 use App\Models\JobListing;
 use App\Models\BrandLogo;
+use App\Models\HomeVideo;
 use App\Models\SectionSetting;
 
 class HomeController extends Controller
@@ -32,6 +33,13 @@ class HomeController extends Controller
                 $data['heroSliders'] = HeroSlider::where('is_active', true)
                     ->orderBy('sort_order')
                     ->get();
+            }
+
+            if (SectionSetting::isSectionActive('home_video')) {
+                $homeVideo = HomeVideo::where('is_active', true)->first();
+                if ($homeVideo) {
+                    $data['homeVideo'] = $homeVideo;
+                }
             }
 
             if (SectionSetting::isSectionActive('services')) {

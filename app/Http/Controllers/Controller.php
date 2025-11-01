@@ -127,4 +127,45 @@ abstract class Controller extends BaseController
 
         return $uploadedImages;
     }
+
+    /**
+     * Handle video file upload
+     *
+     * @param \Illuminate\Http\UploadedFile $file
+     * @param string $directory
+     * @return string
+     */
+    protected function handleVideoUpload($file, $directory)
+    {
+        // Generate unique filename
+        $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9\-\._]/', '', $file->getClientOriginalName());
+
+        // Ensure directory exists
+        $path = public_path('assets/' . $directory);
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+
+        // Move uploaded file
+        $file->move($path, $filename);
+
+        return $filename;
+    }
+
+    /**
+     * Delete video file from storage
+     *
+     * @param string $videoPath
+     * @param string $directory
+     * @return void
+     */
+    protected function deleteVideo($videoPath, $directory)
+    {
+        if (!$videoPath) return;
+
+        $path = public_path('assets/' . $directory . '/' . $videoPath);
+        if (file_exists($path)) {
+            unlink($path);
+        }
+    }
 }

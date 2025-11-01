@@ -465,6 +465,10 @@
                         <i class="fas fa-images"></i>
                         <span>Hero Sliders</span>
                     </a>
+                    <a class="nav-link {{ request()->routeIs('admin.home-videos.*') ? 'active' : '' }}" href="{{ route('admin.home-videos.index') }}">
+                        <i class="fas fa-video"></i>
+                        <span>Home Video</span>
+                    </a>
                     <a class="nav-link {{ request()->routeIs('admin.fun-facts.*') ? 'active' : '' }}" href="{{ route('admin.fun-facts.index') }}">
                         <i class="fas fa-chart-bar"></i>
                         <span>Facts</span>

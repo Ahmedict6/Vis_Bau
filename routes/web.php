@@ -57,6 +57,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     // Hero Sliders
     Route::resource('hero-sliders', App\Http\Controllers\Admin\HeroSliderController::class);
 
+    // Home Video
+    Route::resource('home-videos', App\Http\Controllers\Admin\HomeVideoController::class);
+
     // Facts
     Route::resource('fun-facts', App\Http\Controllers\Admin\FunFactController::class);
 

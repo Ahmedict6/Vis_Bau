@@ -59,6 +59,40 @@
 </div>
 @endisset
 <!--====================  End of hero slider area  ====================-->
+<!--====================  home video area ====================-->
+@isset($homeVideo)
+@if($homeVideo->is_active && $homeVideo->video_path)
+<div class="home-video-area section-space--inner--120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-area text-center section-space--bottom--50">
+                    @if($homeVideo->title)
+                    <h2 class="section-title">{{ $homeVideo->title }} <span class="title-icon"></span></h2>
+                    @endif
+                    @if($homeVideo->description)
+                    <p class="section-description">{{ $homeVideo->description }}</p>
+                    @endif
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="home-video-wrapper text-center">
+                    <div class="video-container" style="max-width: 800px; margin: 0 auto;">
+                        <video controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <source src="{{ asset('assets/videos/' . $homeVideo->video_path) }}" type="video/mp4">
+                            <source src="{{ asset('assets/videos/' . $homeVideo->video_path) }}" type="video/webm">
+                            <source src="{{ asset('assets/videos/' . $homeVideo->video_path) }}" type="video/ogv">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+@endisset
+<!--====================  End of home video area  ====================-->
 <!--====================  service grid slider area ====================-->
 @isset($services)
 <div class="service-grid-slider-area section-space--inner--120">
