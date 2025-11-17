@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area text-center">
-                    <h2 class="section-title section-space--bottom--50">Our Services <span class="title-icon"></span></h2>
+                    <h2 class="section-title section-space--bottom--50">Our Services</h2>
                     <p class="section-subtitle">Professional construction services tailored to your needs</p>
                 </div>
             </div>

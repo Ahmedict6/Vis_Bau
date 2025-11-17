@@ -198,7 +198,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
-                        <h2 class="section-title section-space--bottom--50">Our Team <span class="title-icon"></span></h2>
+                        <h2 class="section-title section-space--bottom--50">Our Team</h2>
                     </div>
                 </div>
             </div>

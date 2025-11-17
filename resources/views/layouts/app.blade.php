@@ -382,6 +382,12 @@
                                         <ul class="contact-details">
                                             <li><span>Telefon:</span>+49 (0) 621 6374820</li>
                                             <li><span>E-Mail:</span>info@vis-bau.com</li>
+                                            <li>
+                                                <span>
+                                                    <span class="lang-de">Geschäftliche E-Mail:</span>
+                                                </span>
+                                                <a href="mailto:business@vis-bau.com" style="color: #c7c7c7;">business@vis-bau.com</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

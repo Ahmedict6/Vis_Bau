@@ -68,7 +68,7 @@
             <div class="col-lg-12">
                 <div class="section-title-area text-center section-space--bottom--50">
                     @if($homeVideo->title)
-                    <h2 class="section-title">{{ $homeVideo->title }} <span class="title-icon"></span></h2>
+                    <h2 class="section-title">{{ $homeVideo->title }}</h2>
                     @endif
                     @if($homeVideo->description)
                     <p class="section-description">{{ $homeVideo->description }}</p>
@@ -100,7 +100,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area text-center">
-                    <h2 class="section-title section-space--bottom--50">Unsere Dienstleistungen <span class="title-icon"></span></h2>
+                    <h2 class="section-title section-space--bottom--50">Unsere Dienstleistungen</h2>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -250,7 +250,7 @@
             <div class="col-lg-12">
                 <!-- section title -->
                 <div class="section-title-area text-center">
-                    <h2 class="section-title section-space--bottom--50">Aktuelle Projekte <span class="title-icon"></span></h2>
+                    <h2 class="section-title section-space--bottom--50">Aktuelle Projekte</h2>
                 </div>
             </div>
         </div>
@@ -423,7 +423,7 @@
             <div class="col-lg-12">
                 <!-- section title -->
                 <div class="section-title-area text-center">
-                    <h2 class="section-title section-space--bottom--50">Neuer Blog <span class="title-icon"></span></h2>
+                    <h2 class="section-title section-space--bottom--50">Neuer Blog</h2>
                 </div>
             </div>
 

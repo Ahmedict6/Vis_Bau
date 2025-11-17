@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Database\QueryException;
 
 class ProjectController extends Controller
 {
@@ -35,7 +36,16 @@ class ProjectController extends Controller
         ]);
 
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $slug = Str::slug($request->title);
+
+        // Check if slug already exists
+        if (Project::where('slug', $slug)->exists()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['title' => 'A project with this title already exists. Please use a different title.']);
+        }
+
+        $data['slug'] = $slug;
         $data['is_published'] = $request->has('is_published');
         $data['is_featured'] = $request->has('is_featured');
         $data['gallery'] = json_encode($request->gallery ?? []);
@@ -52,7 +62,16 @@ class ProjectController extends Controller
             $data['gallery'] = json_encode($galleryImages);
         }
 
-        Project::create($data);
+        try {
+            Project::create($data);
+        } catch (QueryException $e) {
+            if ($e->getCode() == 23000) {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors(['title' => 'A project with this title already exists. Please use a different title.']);
+            }
+            throw $e;
+        }
 
         return redirect()->route('admin.projects.index')
             ->with('success', 'Project created successfully.');
@@ -83,7 +102,16 @@ class ProjectController extends Controller
         ]);
 
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $slug = Str::slug($request->title);
+
+        // Check if slug already exists (excluding current project)
+        if (Project::where('slug', $slug)->where('id', '!=', $project->id)->exists()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['title' => 'A project with this title already exists. Please use a different title.']);
+        }
+
+        $data['slug'] = $slug;
         $data['is_published'] = $request->has('is_published');
         $data['is_featured'] = $request->has('is_featured');
         $data['gallery'] = json_encode($request->gallery ?? []);
@@ -116,7 +144,16 @@ class ProjectController extends Controller
             $data['gallery'] = json_encode($galleryImages);
         }
 
-        $project->update($data);
+        try {
+            $project->update($data);
+        } catch (QueryException $e) {
+            if ($e->getCode() == 23000) {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors(['title' => 'A project with this title already exists. Please use a different title.']);
+            }
+            throw $e;
+        }
 
         return redirect()->route('admin.projects.index')
             ->with('success', 'Project updated successfully.');

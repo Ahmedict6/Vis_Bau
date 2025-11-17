@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area text-center">
-                    <h2 class="section-title section-space--bottom--50">Latest News & Insights <span class="title-icon"></span></h2>
+                    <h2 class="section-title section-space--bottom--50">Latest News & Insights</h2>
                     <p class="section-subtitle">Stay updated with construction trends and industry insights</p>
                 </div>
             </div>
